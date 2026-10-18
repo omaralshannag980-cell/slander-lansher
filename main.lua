@@ -10,21 +10,15 @@ local win = ray:CreateWindow({
     KeySystem = false
 })
 
--- اوامر
 local cmdTab = win:CreateTab("أوامر انفنتي🇦🇱")
 
 local cmds = {
-    "antiafk",
-    "antikick",
-    "xray",
-    "antilag",
-    "backtrack nan",
-    "backtrack 999",
-    "datalimit 660",
-    "autokeypress nan",
-    "autokeypress",
-    "DSBACKTRACK 999",
-    "DSBACKTRACK 660"
+    "antiafk","antikick","xray","antilag",
+    "backtrack nan","backtrack 999","datalimit 660",
+    "autokeypress nan","autokeypress",
+    "DSBACKTRACK 999","DSBACKTRACK 660",
+    "nofog","2022materials","clearerror","swim","fly",
+    "fr","fling","DSBACKTRACK 1000","Replicationlag 999"
 }
 
 for i = 1, #cmds do
@@ -32,19 +26,12 @@ for i = 1, #cmds do
     cmdTab:CreateButton({
         Name = c,
         Callback = function()
-            pcall(function()
-                setclipboard(c)
-            end)
-            ray:Notify({
-                Title = "copied",
-                Content = c,
-                Duration = 2
-            })
+            pcall(function() setclipboard(c) end)
+            ray:Notify({Title = "copied", Content = c, Duration = 2})
         end
     })
 end
 
--- سكربتات
 local sTab = win:CreateTab("سكربتات انفنتي🇦🇱")
 
 sTab:CreateButton({
@@ -81,3 +68,35 @@ sTab:CreateButton({
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-NO9AT-SAMLAT-47637"))()
     end
 })
+
+sTab:CreateButton({
+    Name = "XR7",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-XR7-229771"))()
+    end
+})
+
+sTab:CreateButton({
+    Name = "GAROU XR7",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-GAROU-XR7-230477"))()
+    end
+})
+
+sTab:CreateButton({
+    Name = "slander",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/omaralshannag980-cell/----/refs/heads/main/obfuscated.lua"))()
+    end
+})
+
+local rightsTab = win:CreateTab("حقوق")
+
+rightsTab:CreateSection("السكربت هذا خاص بـ سلندر وتلميذه لانشر")
+rightsTab:CreateSection("لا يحق لأي شخص استخدامه إلا بموافقتنا")
+rightsTab:CreateSection("_________________________________________")
+rightsTab:CreateSection("الرجاء عدم تسريب الأوامر الخاصة")
+rightsTab:CreateSection("أو إعطائها لأي شخص")
+rightsTab:CreateSection("_________________________________________")
+rightsTab:CreateSection("مع تحياتي لكم")
+rightsTab:CreateSection("وكسم كايزن و AS وكل أصدقائهم")
