@@ -37,7 +37,19 @@ local sTab = win:CreateTab("سكربتات انفنتي🇦🇱")
 sTab:CreateButton({
     Name = "script 1 | key: AL-QYADAH~F7LK",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/professor-f7lk/CLAN_AL_QYADAH/refs/heads/main/README.md"))()
+        local ok, src = pcall(function()
+            return game:HttpGet("https://raw.githubusercontent.com/professor-f7lk/CLAN_AL_QYADAH/refs/heads/main/README.md")
+        end)
+        if not ok or not src then
+            ray:Notify({Title = "خطأ", Content = "فشل الاتصال بالرابط", Duration = 3})
+            return
+        end
+        local func = loadstring(src)
+        if not func then
+            ray:Notify({Title = "خطأ", Content = "فشل تحميل السكربت", Duration = 3})
+            return
+        end
+        pcall(func, "AL-QYADAH~F7LK")
     end
 })
 
